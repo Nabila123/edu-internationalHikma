@@ -25,12 +25,12 @@ function uang($nominal = '', $rp = '1', $dec = 0)
     }
 }
 
-// function spasi($rekursive = 1)
-// {
-//     for ($a = 1; $a <= $rekursive; $a++) {
-//         echo '&nbsp;';
-//     }
-// }
+function spasi($rekursive = 1)
+{
+    for ($a = 1; $a <= $rekursive; $a++) {
+        echo '&nbsp;';
+    }
+}
 
 function get_client_ip()
 {
