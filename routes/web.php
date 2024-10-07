@@ -1,31 +1,25 @@
 <?php
 
-use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogsController;
+use App\Http\Controllers\Main\MainHomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Setting\BackupDataController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/home', [MainHomeController::class, 'index'])->name('main.home');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('layouts.app');
-    });
-
-    Route::get('dashboard', [HomeController::class, 'index']);
+    Route::get('/', [HomeController::class, 'index']);
 
     Route::post('profile/updatePassword', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
     Route::resource('profile', ProfileController::class);
