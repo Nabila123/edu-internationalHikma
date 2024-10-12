@@ -10,17 +10,15 @@ font-family: 'Libre Baskerville', serif;
 font-family: 'Rubik', sans-serif;
 */
 
-
 /*
 --------------------------
 - Default Typography
 --------------------------
 */
 
-
 p img {
     margin: 0;
-} 
+}
 
 /* em and strong */
 
@@ -38,12 +36,11 @@ small {
     line-height: inherit;
 }
 
-
 /*  blockquotes */
 
 blockquote {
     border-left: 0 none;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     margin: 10px 0;
     padding-left: 40px;
     position: relative;
@@ -82,10 +79,9 @@ blockquote cite:before {
 
 blockquote cite a,
 blockquote cite a:visited {
-    color: #8B9798;
-    border: none
+    color: #8b9798;
+    border: none;
 }
-
 
 /* abbreviations */
 
@@ -94,19 +90,18 @@ abbr {
     font-weight: 700;
     font-variant: small-caps;
     text-transform: lowercase;
-    letter-spacing: .6px;
+    letter-spacing: 0.6px;
 }
 
 abbr:hover {
     cursor: help;
 }
 
-
 /* links */
 
 a,
 a:visited {
-    text-decoration: none; 
+    text-decoration: none;
     font-weight: normal;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
@@ -136,7 +131,6 @@ p a:visited {
 a.active {
     color: #ffb607;
 }
-
 
 /* list */
 
@@ -194,10 +188,11 @@ li {
     margin-bottom: 0px;
 }
 
-ul.large li {}
+ul.large li {
+}
 
-li p {}
-
+li p {
+}
 
 /* definition list */
 
@@ -207,7 +202,7 @@ dl {
 
 dt {
     margin: 0;
-    color: #11ABB0;
+    color: #11abb0;
 }
 
 dd {
@@ -219,13 +214,10 @@ button {
     cursor: pointer;
 }
 
-
 /*
 --------------------------
 - Custom Typography
 --------------------------
 */
 
-
 /* Your Custom Typography. */
-

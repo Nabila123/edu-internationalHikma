@@ -15,33 +15,34 @@
                         <li>
                             <a href="javascript:void(0);">Profile</a>
                             <ul class="submenu w-250px">
-                                <li><a href="{{ route('main.home') }}">Tentang Sekolah</a></li>
-                                <li><a href="{{ route('main.home') }}">Sejarah Sekolah</a></li>
-                                <li><a href="{{ route('main.home') }}">Profile Yayasan</a></li>
-                                <li><a href="{{ route('main.home') }}">Profile Pengajar</a></li>
-                                <li><a href="{{ route('main.home') }}">Visi Misi Sekolah</a></li>
-                                <li><a href="{{ route('main.home') }}">Standar Kompetensi Lulusan</a></li>
+                                <li><a href="{{ route('profile.tentang-sekolah') }}">Tentang Sekolah</a></li>
+                                <li><a href="{{ route('profile.sejarah-sekolah') }}">Sejarah Sekolah</a></li>
+                                <li><a href="{{ route('profile.profile-yayasan') }}">Profile Yayasan</a></li>
+                                <li><a href="{{ route('profile.profile-pengajar') }}">Profile Pengajar</a></li>
+                                <li><a href="{{ route('profile.visi-misi-sekolah') }}">Visi Misi Sekolah</a></li>
+                                <li><a href="{{ route('profile.standart-kompetensi-lulusan') }}">Standar Kompetensi
+                                        Lulusan</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="javascript:void(0);">Akademik</a>
                             <ul class="submenu w-200px">
-                                <li><a href="{{ route('main.home') }}">Program Unggulan</a></li>
+                                <li><a href="{{ route('akademik.program-unggulan') }}">Program Unggulan</a></li>
                                 <li>
-                                    <a href="{{ route('main.home') }}">Asrama</a>
+                                    <a href="{{ route('akademik.asrama') }}">Asrama</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('main.home') }}">Prestasi</a></li>
-                        <li><a href="{{ route('main.home') }}">Galeri</a></li>
+                        <li><a href="{{ route('prestasi') }}">Prestasi</a></li>
+                        <li><a href="{{ route('galeri') }}">Galeri</a></li>
                         <li>
                             <a href="javascript:void(0);">Berita</a>
                             <ul class="submenu">
-                                <li><a href="{{ route('main.home') }}">Kabar</a></li>
-                                <li><a href="{{ route('main.home') }}">Blog</a></li>
+                                <li><a href="{{ route('berita.kabar') }}">Kabar</a></li>
+                                <li><a href="{{ route('berita.blog') }}">Blog</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('main.home') }}">Karir</a></li>
+                        <li><a href="{{ route('karier') }}">Karier / Lowongan</a></li>
                     </ul>
                 </nav>
             </div>

@@ -3626,7 +3626,7 @@ tbody.collapse.show {
 }
 .nav-link {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
 }
 .nav-link:focus,
 .nav-link:hover {
@@ -3668,12 +3668,22 @@ tbody.collapse.show {
 }
 .nav-pills .nav-link {
     border-radius: 0.25rem;
+    background-color: #f9f9ff;
+    margin-bottom: 7px;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #007bff;
+    color: #fff !important;
+    font-weight: 600;
+    background-color: #fc9928;
 }
+
+.nav-pills .nav-link:hover {
+    color: #fff !important;
+    font-weight: 600;
+    background-color: #fc9928;
+}
+
 .nav-fill .nav-item {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -8540,4 +8550,202 @@ a.text-dark:hover {
         border: 1px solid #ddd !important;
     }
 }
-/*# sourceMappingURL=bootstrap.min.css.map */
+
+/* OTHER STYLE */
+
+/* Image */
+.responsive-img {
+    float: left;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .responsive-img {
+        float: none;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+/* Header Bar */
+.feature-area {
+    margin-top: -70px;
+    position: relative;
+    z-index: 1;
+}
+.single-feature {
+    text-align: center;
+}
+.single-feature .title {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px 0px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.single-feature .title h4 {
+    color: #fff;
+}
+.single-feature .desc-wrap {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 10px 30px 0px rgba(153, 153, 153, 0.1);
+}
+.single-feature .desc-wrap a {
+    font-size: 14px;
+    font-weight: 600;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    color: #222;
+}
+.single-feature:hover {
+    cursor: pointer;
+}
+.single-feature:hover .title {
+    background: #f7631b;
+}
+.single-feature:hover .desc-wrap a {
+    color: #f7631b;
+}
+@media (max-width: 991px) {
+    .single-feature {
+        margin-bottom: 30px;
+    }
+    .single-feature .title {
+        background: #f7631b;
+    }
+}
+
+.accordion dt {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.accordion dt a {
+    display: block;
+    position: relative;
+    color: #222222;
+    text-decoration: none;
+    padding: 8px 20px;
+    background: #f9f9ff;
+    font-weight: 600;
+}
+.accordion dt a:hover {
+    text-decoration: none !important;
+}
+.accordion dt a.active {
+    color: #fff !important;
+    border-color: #ddd !important;
+    background: #f7631b !important;
+    cursor: default !important;
+}
+.accordion dt a:after {
+    content: "\f107";
+    width: 15px;
+    height: 15px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-family: "FontAwesome";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    color: #111;
+    -webkit-font-smoothing: antialiased;
+}
+.accordion dt a.active:after,
+.accordion dt a.active:hover:after {
+    content: "\f106";
+    color: #fff;
+}
+.accordion dt a:hover:after {
+    color: #444;
+}
+.accordion dd {
+    margin-bottom: 10px;
+    padding: 10px 20px 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+}
+.accordion dt a,
+.accordion dt a:after,
+.toggle dt a,
+.toggle dt a:after {
+    -webkit-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    -moz-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    -o-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    -ms-transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+    transition: all 0.27s cubic-bezier(0, 0, 0.58, 1);
+}
+dl.accordion.time-line {
+    position: relative;
+}
+dl.accordion.time-line:before {
+    border-left: 1px dashed #cecece;
+    bottom: 10px;
+    content: "";
+    left: 15px;
+    position: absolute;
+    top: 25px;
+    z-index: 0;
+}
+.accordion.time-line dd {
+    margin-bottom: 10px;
+    padding: 10px 20px 20px 40px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+}
+.accordion.time-line dt a:after {
+    content: "\e648";
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: -15px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-family: "icomoon";
+    speak: none;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    background: #222;
+    padding-left: 3px;
+}
+.accordion.time-line dt a.active:after,
+.accordion.time-line dt a.active:hover:after {
+    content: "\e641";
+    color: #fff;
+}
+.accordion.time-line dt a {
+    display: block;
+    position: relative;
+    color: #222222;
+    text-decoration: none;
+    padding: 14px 20px 14px 40px;
+    border: none;
+    letter-spacing: 3px;
+}
+.accordion.time-line dt a:hover,
+.accordion.time-line dt a.active {
+    background: none !important;
+}
