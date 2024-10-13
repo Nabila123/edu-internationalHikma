@@ -11,4 +11,9 @@ class PrestasiController extends Controller
     {
         return view('main.Prestasi.index');
     }
+
+    public function show($id)
+    {
+        return view('main.Prestasi.detail');
+    }
 }

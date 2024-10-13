@@ -22,12 +22,14 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Setting\BackupDataController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
 Route::get('/home', [MainHomeController::class, 'index'])->name('main.home');
+Route::get('/prestasi/detail/{id}', [PrestasiController::class, 'show'])->name('prestasi.detil');
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/karier', [KarierController::class, 'index'])->name('karier');
