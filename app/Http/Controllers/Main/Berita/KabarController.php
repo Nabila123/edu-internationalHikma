@@ -11,4 +11,9 @@ class KabarController extends Controller
     {
         return view('main.Berita.Kabar.index');
     }
+
+    public function show($id)
+    {
+        return view('main.Berita.Kabar.detail');
+    }
 }

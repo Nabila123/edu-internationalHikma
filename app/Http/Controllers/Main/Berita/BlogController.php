@@ -11,4 +11,9 @@ class BlogController extends Controller
     {
         return view('main.Berita.Blog.index');
     }
+
+    public function show($id)
+    {
+        return view('main.Berita.Blog.detail');
+    }
 }

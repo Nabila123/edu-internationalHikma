@@ -29,10 +29,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', [MainHomeController::class, 'index'])->name('main.home');
+
 Route::get('/prestasi/detail/{id}', [PrestasiController::class, 'show'])->name('prestasi.detil');
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
+
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
+
+Route::get('/karier/detail/{id}', [KarierController::class, 'show'])->name('karier.detil');
 Route::get('/karier', [KarierController::class, 'index'])->name('karier');
+
 Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
     Route::get('tentang-sekolah', [TentangSekolahController::class, 'index'])->name('tentang-sekolah');
     Route::get('sejarah-sekolah', [SejarahSekolahController::class, 'index'])->name('sejarah-sekolah');
@@ -46,7 +51,10 @@ Route::group(['prefix' => 'akademik', 'as' => 'akademik.'], function () {
     Route::get('asrama', [AsramaController::class, 'index'])->name('asrama');
 });
 Route::group(['prefix' => 'berita', 'as' => 'berita.'], function () {
+    Route::get('/kabar/detail/{id}', [KabarController::class, 'show'])->name('kabar.detil');
     Route::get('kabar', [KabarController::class, 'index'])->name('kabar');
+
+    Route::get('/blog/detail/{id}', [BlogController::class, 'show'])->name('blog.detil');
     Route::get('blog', [BlogController::class, 'index'])->name('blog');
 });
 

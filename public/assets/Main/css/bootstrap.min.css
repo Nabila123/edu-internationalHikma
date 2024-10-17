@@ -1861,7 +1861,7 @@ pre code {
     display: block;
     width: 100%;
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
+    font-size: 12px;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
@@ -3509,7 +3509,7 @@ tbody.collapse.show {
 .custom-select {
     display: inline-block;
     width: 100%;
-    height: calc(2.25rem + 2px);
+    height: calc(2.25rem + 17px);
     padding: 0.375rem 1.75rem 0.375rem 0.75rem;
     line-height: 1.5;
     color: #495057;
@@ -5111,7 +5111,7 @@ button.close {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1rem;
+    padding: 2rem;
 }
 .modal-footer {
     display: -webkit-box;
@@ -5138,6 +5138,15 @@ button.close {
     width: 50px;
     height: 50px;
     overflow: scroll;
+}
+.modal-right {
+    position: fixed !important;
+    right: 2rem !important;
+    margin: 0 !important;
+    top: 3rem !important;
+    bottom: 0 !important;
+    width: 30% !important; /* Atur lebar modal sesuai kebutuhan */
+    max-width: none !important;
 }
 @media (min-width: 576px) {
     .modal-dialog {
@@ -5712,6 +5721,9 @@ a.bg-dark:hover,
 button.bg-dark:focus,
 button.bg-dark:hover {
     background-color: #1d2124 !important;
+}
+.bg-default {
+    background-color: #fc9928 !important;
 }
 .bg-white {
     background-color: #fff !important;
@@ -7198,85 +7210,84 @@ button.bg-dark:hover {
 }
 
 .mt-n1 {
-  margin-top: -0.25rem !important;
+    margin-top: -0.25rem !important;
 }
 
 .mt-n2 {
-  margin-top: -0.5rem !important;
+    margin-top: -0.5rem !important;
 }
 
 .mt-n3 {
-  margin-top: -0.75rem !important;
+    margin-top: -0.75rem !important;
 }
 
 .mt-n4 {
-  margin-top: -1rem !important;
+    margin-top: -1rem !important;
 }
 
 .mt-n5 {
-  margin-top: -1.25rem !important;
+    margin-top: -1.25rem !important;
 }
 
 .mt-n6 {
-  margin-top: -1.5rem !important;
+    margin-top: -1.5rem !important;
 }
 
 .mt-n7 {
-  margin-top: -1.75rem !important;
+    margin-top: -1.75rem !important;
 }
 
 .mt-n8 {
-  margin-top: -2rem !important;
+    margin-top: -2rem !important;
 }
 
 .mt-n9 {
-  margin-top: -2.25rem !important;
+    margin-top: -2.25rem !important;
 }
 
 .mt-n10 {
-  margin-top: -2.5rem !important;
+    margin-top: -2.5rem !important;
 }
 
 .mt-n11 {
-  margin-top: -2.75rem !important;
+    margin-top: -2.75rem !important;
 }
 
 .mt-n12 {
-  margin-top: -3rem !important;
+    margin-top: -3rem !important;
 }
 
 .mt-n13 {
-  margin-top: -3.25rem !important;
+    margin-top: -3.25rem !important;
 }
 
 .mt-n14 {
-  margin-top: -3.5rem !important;
+    margin-top: -3.5rem !important;
 }
 
 .mt-n15 {
-  margin-top: -3.75rem !important;
+    margin-top: -3.75rem !important;
 }
 
 .mt-n16 {
-  margin-top: -4rem !important;
+    margin-top: -4rem !important;
 }
 
 .mt-n17 {
-  margin-top: -4.25rem !important;
+    margin-top: -4.25rem !important;
 }
 
 .mt-n18 {
-  margin-top: -4.5rem !important;
+    margin-top: -4.5rem !important;
 }
 
 .mt-n19 {
-  margin-top: -4.75rem !important;
+    margin-top: -4.75rem !important;
 }
 
 .mt-n20 {
-  margin-top: -5rem !important;
+    margin-top: -5rem !important;
 }
-
 
 .p-0 {
     padding: 0 !important;
@@ -8830,4 +8841,206 @@ dl.accordion.time-line:before {
 .accordion.time-line dt a:hover,
 .accordion.time-line dt a.active {
     background: none !important;
+}
+
+/* Galery */
+
+.gallery-area .single-imgs {
+    margin-bottom: 30px;
+}
+.gallery-area .single-imgs img {
+    width: 100%;
+}
+.gallery-area .single-imgs .overlay-bg {
+    background: rgba(247, 99, 27, 0.85);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    z-index: 2;
+}
+.gallery-area .single-imgs:hover .overlay-bg {
+    opacity: 1;
+}
+
+/* Font Size */
+.fs-1 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+}
+
+.fs-2 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+.fs-3 {
+    font-size: calc(1.26rem + 0.12vw) !important;
+}
+
+.fs-4 {
+    font-size: 1.25rem !important;
+}
+
+.fs-5 {
+    font-size: 1.15rem !important;
+}
+
+.fs-6 {
+    font-size: 1.075rem !important;
+}
+
+.fs-7 {
+    font-size: 0.95rem !important;
+}
+
+.fs-8 {
+    font-size: 0.85rem !important;
+}
+
+.fs-9 {
+    font-size: 0.75rem !important;
+}
+
+.fs-10 {
+    font-size: 0.5rem !important;
+}
+
+.fs-base {
+    font-size: 1rem !important;
+}
+
+.fs-fluid {
+    font-size: 100% !important;
+}
+
+.fs-2x {
+    font-size: calc(1.325rem + 0.9vw) !important;
+}
+
+.fs-2qx {
+    font-size: calc(1.35rem + 1.2vw) !important;
+}
+
+.fs-2hx {
+    font-size: calc(1.375rem + 1.5vw) !important;
+}
+
+.fs-2tx {
+    font-size: calc(1.4rem + 1.8vw) !important;
+}
+
+.fs-3x {
+    font-size: calc(1.425rem + 2.1vw) !important;
+}
+
+.fs-3qx {
+    font-size: calc(1.45rem + 2.4vw) !important;
+}
+
+.fs-3hx {
+    font-size: calc(1.475rem + 2.7vw) !important;
+}
+
+.fs-3tx {
+    font-size: calc(1.5rem + 3vw) !important;
+}
+
+.fs-4x {
+    font-size: calc(1.525rem + 3.3vw) !important;
+}
+
+.fs-4qx {
+    font-size: calc(1.55rem + 3.6vw) !important;
+}
+
+.fs-4hx {
+    font-size: calc(1.575rem + 3.9vw) !important;
+}
+
+.fs-4tx {
+    font-size: calc(1.6rem + 4.2vw) !important;
+}
+
+.fs-5x {
+    font-size: calc(1.625rem + 4.5vw) !important;
+}
+
+.fs-5qx {
+    font-size: calc(1.65rem + 4.8vw) !important;
+}
+
+.fs-5hx {
+    font-size: calc(1.675rem + 5.1vw) !important;
+}
+
+.fs-5tx {
+    font-size: calc(1.7rem + 5.4vw) !important;
+}
+
+.fw-lighter {
+  font-weight: lighter !important;
+}
+
+.fw-light {
+  font-weight: 300 !important;
+}
+
+.fw-normal {
+  font-weight: 400 !important;
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+.fw-semibold {
+  font-weight: 500 !important;
+}
+
+.fw-bold {
+  font-weight: 600 !important;
+}
+
+.fw-bolder {
+  font-weight: 700 !important;
+}
+
+.ls-1 {
+  letter-spacing: 0.1rem !important;
+}
+
+.ls-2 {
+  letter-spacing: 0.115rem !important;
+}
+
+.ls-3 {
+  letter-spacing: 0.125rem !important;
+}
+
+.ls-4 {
+  letter-spacing: 0.25rem !important;
+}
+
+.ls-5 {
+  letter-spacing: 0.5rem !important;
+}
+
+.ls-n1 {
+  letter-spacing: -0.1rem !important;
+}
+
+.ls-n2 {
+  letter-spacing: -0.115rem !important;
+}
+
+.ls-n3 {
+  letter-spacing: -0.125rem !important;
+}
+
+.ls-n4 {
+  letter-spacing: -0.25rem !important;
+}
+
+.ls-n5 {
+  letter-spacing: -0.5rem !important;
 }

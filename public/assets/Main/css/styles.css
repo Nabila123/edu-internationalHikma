@@ -2485,10 +2485,11 @@ h4.comment-title {
 /*============================================
     END 404
 *=============================================*/
-
+/* .modal-body select,
+.modal-body textarea, */
 .modal-body input {
     border: 1px solid #efefef;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     padding: 10px 15px;
     width: 100%;
 }

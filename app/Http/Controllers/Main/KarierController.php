@@ -11,4 +11,9 @@ class KarierController extends Controller
     {
         return view('main.Karier.index');
     }
+
+    public function show($id)
+    {
+        return view('main.Karier.detail');
+    }
 }
