@@ -35,6 +35,7 @@ Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
+Route::get('/karier/create', [KarierController::class, 'create'])->name('karier.create');
 Route::get('/karier/detail/{id}', [KarierController::class, 'show'])->name('karier.detil');
 Route::get('/karier', [KarierController::class, 'index'])->name('karier');
 

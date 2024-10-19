@@ -45,6 +45,7 @@
     <script src="{{ asset('assets/Main/js/jquery.slicknav.min.js') }}"></script>
     <script src="{{ asset('assets/Main/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/Main/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/helper.js') }}"></script>
     @stack('custom-scripts')
 </body>
 

@@ -16,4 +16,9 @@ class KarierController extends Controller
     {
         return view('main.Karier.detail');
     }
+
+    public function create()
+    {
+        return view('main.Karier.create');
+    }
 }
