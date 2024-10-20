@@ -11,16 +11,16 @@
         <div class="ht-social">
             <ul>
                 <li>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </li>
             </ul>
         </div>

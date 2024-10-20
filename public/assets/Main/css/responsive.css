@@ -1,6 +1,7 @@
 /* (1366x768) WXGA Display */
 
-@media screen and (min-width: 1366px) and (max-width: 1920px) {}
+@media screen and (min-width: 1366px) and (max-width: 1920px) {
+}
 
 /*Medium Desktop Device*/
 
@@ -41,7 +42,7 @@
     .slider-content h2 {
         font-size: 46px;
     }
-    .slider-content>span {
+    .slider-content > span {
         font-size: 20px;
     }
     .section-title img.abt-tlt-shape {
@@ -53,10 +54,10 @@
         line-height: 43px;
         margin: 0;
     }
-    .section-title>span {
+    .section-title > span {
         margin-bottom: 11px;
     }
-    .media-body  {
+    .media-body {
         padding-left: 25px;
     }
 
@@ -71,7 +72,7 @@
         font-size: 45px;
         line-height: 62px;
     }
-    .hero-content>span {
+    .hero-content > span {
         font-size: 19px;
         margin-bottom: 9px;
     }
@@ -202,12 +203,13 @@
         font-size: 41px;
         line-height: 56px;
     }
-    .slider-content>span {
+    .slider-content > span {
         font-size: 19px;
     }
     .blog-carousel .owl-nav,
     .course-carousel .owl-nav,
-    .teacher-carousel .owl-nav {
+    .teacher-carousel .owl-nav,
+    .prestasi-carousel .owl-nav {
         top: -112px;
     }
     .section-title img.abt-tlt-shape {
@@ -232,27 +234,27 @@
     .section-title {
         margin-bottom: 30px;
     }
-    .section-title>span {
+    .section-title > span {
         margin-bottom: 8px;
     }
-    .media-head  {
+    .media-head {
         width: 97px;
         padding: 13px 0 15px;
     }
-    .media-head  h2 {
+    .media-head h2 {
         font-size: 21px;
         line-height: 24px;
     }
-    .media-head  h5 {
+    .media-head h5 {
         font-size: 12px;
     }
-    .media-head  h5 span {
+    .media-head h5 span {
         font-size: 11px;
     }
-    .media-body  {
+    .media-body {
         padding-left: 10px;
     }
-    .media-body  h2 {
+    .media-body h2 {
         font-size: 18px;
         margin-bottom: 5px;
     }
@@ -273,7 +275,7 @@
         background: #fff;
     }
     .middle-logo {
-        display: none!important;
+        display: none !important;
     }
     .hero-area {
         margin-top: 104px;
@@ -283,7 +285,7 @@
         font-size: 41px;
         line-height: 53px;
     }
-    .hero-content>span {
+    .hero-content > span {
         font-size: 17px;
         margin-bottom: 7px;
     }
@@ -400,7 +402,7 @@
     .contact-address {
         padding-bottom: 70px;
     }
-    .contact-info #google_map{
+    .contact-info #google_map {
         height: 300px;
         margin-top: 70px;
     }
@@ -421,19 +423,19 @@
 
 @media (max-width: 767px) {
     .hero-content h1,
-    .slider-content h1{
+    .slider-content h1 {
         font-size: 22px;
         line-height: 32px;
     }
     .hero-content h3,
-    .slider-content h3{
+    .slider-content h3 {
         font-size: 18px;
     }
-    .hb-right ul li{
+    .hb-right ul li {
         text-align: left;
     }
     .middle-logo {
-        display: none!important;
+        display: none !important;
     }
     .ptb--120 {
         padding: 80px 0;
@@ -447,7 +449,7 @@
     .pb--100 {
         padding-bottom: 60px;
     }
-    .pb--80{
+    .pb--80 {
         padding-bottom: 50px;
     }
     .pb--70 {
@@ -489,12 +491,13 @@
         font-size: 41px;
         line-height: 56px;
     }
-    .slider-content>span {
+    .slider-content > span {
         font-size: 19px;
     }
     .blog-carousel .owl-nav,
     .course-carousel .owl-nav,
-    .teacher-carousel .owl-nav {
+    .teacher-carousel .owl-nav,
+    .prestasi-carousel .owl-nav {
         top: -112px;
     }
     .section-title img.abt-tlt-shape {
@@ -519,25 +522,25 @@
     .section-title {
         margin-bottom: 30px;
     }
-    .section-title>span {
+    .section-title > span {
         margin-bottom: 8px;
     }
-    .media-head  { 
+    .media-head {
     }
-    .media-head  h2 {
+    .media-head h2 {
         font-size: 21px;
         line-height: 24px;
     }
-    .media-head  h5 {
+    .media-head h5 {
         font-size: 12px;
     }
-    .media-head  h5 span {
+    .media-head h5 span {
         font-size: 11px;
     }
-    .media-body  {
+    .media-body {
         padding-left: 10px;
     }
-    .media-body  h2 {
+    .media-body h2 {
         font-size: 18px;
         margin-bottom: 5px;
     }
@@ -567,7 +570,7 @@
         background: #fff;
     }
     .middle-logo {
-        display: none!important;
+        display: none !important;
     }
     .hero-area {
         margin-top: 104px;
@@ -577,7 +580,7 @@
         font-size: 41px;
         line-height: 53px;
     }
-    .hero-content>span {
+    .hero-content > span {
         font-size: 17px;
         margin-bottom: 7px;
     }
@@ -741,7 +744,7 @@
 /* small mobile :320px. */
 
 @media (min-width: 240px) and (max-width: 479px) {
-    .pb--80{
+    .pb--80 {
         padding-bottom: 40px;
     }
     /*Home One*/
@@ -774,7 +777,7 @@
     .header-bottom-inner {
         border: none;
     }
-    .slider-content>span {
+    .slider-content > span {
         font-size: 16px;
     }
     .slider-content h2 {
@@ -800,7 +803,7 @@
     .section-title h3 {
         margin-top: 0;
     }
-    .section-title>span {
+    .section-title > span {
         margin-bottom: 0px;
     }
     .section-title {
@@ -818,7 +821,8 @@
     }
     .blog-carousel .owl-nav,
     .course-carousel .owl-nav,
-    .teacher-carousel .owl-nav {
+    .teacher-carousel .owl-nav,
+    .prestasi-carousel .owl-nav {
         top: -184px;
         display: none;
     }
@@ -847,21 +851,21 @@
     .single-event a {
         display: block;
     }
-    .media-head  {
+    .media-head {
         width: 100%;
         padding: 10px 0 16px;
     }
-    .media-head  h2 {
+    .media-head h2 {
         font-size: 27px;
         line-height: 30px;
     }
-    .media-head  h5 {
+    .media-head h5 {
         font-size: 13px;
     }
-    .media-head  h5 span {
+    .media-head h5 span {
         font-size: 11px;
     }
-    .media-body  {
+    .media-body {
         padding: 27px 15px;
         text-align: center;
     }
@@ -917,7 +921,7 @@
         margin-top: 173px;
         padding: 98px 0;
     }
-    .hero-content>span {
+    .hero-content > span {
         font-size: 19px;
         margin-bottom: 6px;
     }
@@ -967,7 +971,7 @@
     .header-three {
         padding: 0 15px;
     }
-    .hb-s3-right{
+    .hb-s3-right {
         text-align: left;
     }
     .hb-s3-right li a {
@@ -1114,7 +1118,7 @@
     .cnt-title p {
         font-size: 14px;
         font-style: normal;
-        font-family: 'Nunito', sans-serif;
+        font-family: "Nunito", sans-serif;
     }
     .cnt-addres-single {
         margin-bottom: 40px;
@@ -1130,7 +1134,7 @@
     .error-content p {
         font-size: 13px;
     }
-    .teacher-area{
+    .teacher-area {
         padding-bottom: 80px;
     }
 }

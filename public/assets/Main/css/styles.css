@@ -489,7 +489,7 @@ a:hover {
 *=============================================*/
 
 .slider_item {
-    min-height: 825px;
+    min-height: 625px;
     display: flex;
     align-items: center;
     padding-top: 120px;
@@ -770,7 +770,8 @@ ul.course-meta-stats li i {
 }
 .blog-carousel .owl-nav,
 .course-carousel .owl-nav,
-.teacher-carousel .owl-nav {
+.teacher-carousel .owl-nav,
+.prestasi-carousel .owl-nav {
     position: absolute;
     right: 0;
     top: -78px;
@@ -778,7 +779,8 @@ ul.course-meta-stats li i {
 
 .blog-carousel .owl-nav div,
 .course-carousel .owl-nav div,
-.teacher-carousel .owl-nav div {
+.teacher-carousel .owl-nav div,
+.prestasi-carousel .owl-nav div {
     height: 43px;
     width: 43px;
     background: #2f2f2f;
@@ -794,7 +796,8 @@ ul.course-meta-stats li i {
 
 .blog-carousel .owl-nav div:hover,
 .course-carousel .owl-nav div:hover,
-.teacher-carousel .owl-nav div:hover {
+.teacher-carousel .owl-nav div:hover,
+.prestasi-carousel .owl-nav div:hover {
     background: #fc9928;
 }
 
