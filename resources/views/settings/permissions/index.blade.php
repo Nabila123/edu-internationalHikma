@@ -108,7 +108,7 @@
             </div>
         </div>
     </div>
-    @include('permissions.modalPermission')
+    @include('settings.permissions.modalPermission')
 @endsection
 @push('custom-scripts')
     <script type="text/javascript">
