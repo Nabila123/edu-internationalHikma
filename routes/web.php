@@ -17,6 +17,20 @@ use App\Http\Controllers\Main\Profile\SejarahSekolahController;
 use App\Http\Controllers\Main\Profile\StandartKompetensiKelulusanController;
 use App\Http\Controllers\Main\Profile\TentangSekolahController;
 use App\Http\Controllers\Main\Profile\VisiMisiSekolahController;
+use App\Http\Controllers\MainLayouting\Akademik\AsramaController as AkademikAsramaController;
+use App\Http\Controllers\MainLayouting\Akademik\ProgramUnggulanController as AkademikProgramUnggulanController;
+use App\Http\Controllers\MainLayouting\Berita\BlogController as BeritaBlogController;
+use App\Http\Controllers\MainLayouting\Berita\KabarController as BeritaKabarController;
+use App\Http\Controllers\MainLayouting\ContactController;
+use App\Http\Controllers\MainLayouting\GaleriController as MainLayoutingGaleriController;
+use App\Http\Controllers\MainLayouting\KarierController as MainLayoutingKarierController;
+use App\Http\Controllers\MainLayouting\PrestasiController as MainLayoutingPrestasiController;
+use App\Http\Controllers\MainLayouting\Profile\ProfilePengajarController as ProfileProfilePengajarController;
+use App\Http\Controllers\MainLayouting\Profile\ProfileYayasanController as ProfileProfileYayasanController;
+use App\Http\Controllers\MainLayouting\Profile\SejarahSekolahController as ProfileSejarahSekolahController;
+use App\Http\Controllers\MainLayouting\Profile\StandartKompetensiController;
+use App\Http\Controllers\MainLayouting\Profile\TentangSekolahController as ProfileTentangSekolahController;
+use App\Http\Controllers\MainLayouting\Profile\VisiMisiController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -64,6 +78,32 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index']);
+
+    Route::group(['prefix' => 'main', 'as' => 'main.'], function () {
+        Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+            Route::resource('tentang-sekolah', ProfileTentangSekolahController::class);
+            Route::resource('sejarah-sekolah', ProfileSejarahSekolahController::class);
+            Route::resource('profile-yayasan', ProfileProfileYayasanController::class);
+            Route::resource('profile-pengajar', ProfileProfilePengajarController::class);
+            Route::resource('visi-misi', VisiMisiController::class);
+            Route::resource('standart-kompetensi', StandartKompetensiController::class);
+        });
+
+        Route::group(['prefix' => 'akademik', 'as' => 'akademik.'], function () {
+            Route::resource('program-unggulan', AkademikProgramUnggulanController::class);
+            Route::resource('asrama', AkademikAsramaController::class);
+        });
+
+        Route::group(['prefix' => 'berita', 'as' => 'berita.'], function () {
+            Route::resource('kabar', BeritaKabarController::class);
+            Route::resource('blog', BeritaBlogController::class);
+        });
+
+        Route::resource('prestasi', MainLayoutingPrestasiController::class);
+        Route::resource('galeri', MainLayoutingGaleriController::class);
+        Route::resource('karier', MainLayoutingKarierController::class);
+        Route::resource('kontak-kami', ContactController::class);
+    });
 
     Route::post('profile/updatePassword', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
     Route::resource('profile', ProfileController::class);

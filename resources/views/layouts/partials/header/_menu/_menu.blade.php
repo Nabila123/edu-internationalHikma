@@ -63,7 +63,7 @@
                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                 @can('main-layouting-profile-tentang-sekolah-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.profile.tentang-sekolah.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -74,7 +74,7 @@
 
                                 @can('main-layouting-profile-sejarah-sekolah-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.profile.sejarah-sekolah.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -85,7 +85,7 @@
 
                                 @can('main-layouting-profile-profile-yayasan-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.profile.profile-yayasan.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -96,7 +96,7 @@
 
                                 @can('main-layouting-profile-profile-pengajar-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.profile.profile-pengajar.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -107,7 +107,7 @@
 
                                 @can('main-layouting-profile-visi-misi-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.profile.visi-misi.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -118,7 +118,7 @@
 
                                 @can('main-layouting-profile-standart-kompetensi-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.profile.standart-kompetensi.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -145,7 +145,7 @@
                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                 @can('main-layouting-akademik-program-unggulan-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.akademik.program-unggulan.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -156,7 +156,7 @@
 
                                 @can('main-layouting-akademik-asrama-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.akademik.asrama.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -170,7 +170,7 @@
 
                     @can('main-layouting-prestasi-read')
                         <div class="menu-item">
-                            <a href="{{ route('users.index') }}" class="menu-link">
+                            <a href="{{ route('main.prestasi.index') }}" class="menu-link">
                                 <span class="menu-icon">
                                     <i class="fa-solid fa-graduation-cap fs-6"></i>
                                 </span>
@@ -181,7 +181,7 @@
 
                     @can('main-layouting-galeri-read')
                         <div class="menu-item">
-                            <a href="{{ route('users.index') }}" class="menu-link">
+                            <a href="{{ route('main.galeri.index') }}" class="menu-link">
                                 <span class="menu-icon">
                                     <i class="fa-solid fa-images fs-6"></i>
                                 </span>
@@ -205,7 +205,7 @@
                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
                                 @can('main-layouting-berita-kabar-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.berita.kabar.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -216,7 +216,7 @@
 
                                 @can('main-layouting-berita-blog-read')
                                     <div class="menu-item">
-                                        <a class="menu-link" href="#">
+                                        <a class="menu-link" href="{{ route('main.berita.blog.index') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -230,7 +230,7 @@
 
                     @can('main-layouting-karier-read')
                         <div class="menu-item">
-                            <a href="{{ route('users.index') }}" class="menu-link">
+                            <a href="{{ route('main.karier.index') }}" class="menu-link">
                                 <span class="menu-icon">
                                     <i class="fa-solid fa-handshake fs-6"></i>
                                 </span>
@@ -241,7 +241,7 @@
 
                     @can('main-layouting-kontak-read')
                         <div class="menu-item">
-                            <a href="{{ route('users.index') }}" class="menu-link">
+                            <a href="{{ route('main.kontak-kami.index') }}" class="menu-link">
                                 <span class="menu-icon">
                                     <i class="fa-solid fa-address-card fs-6"></i>
                                 </span>
