@@ -34,7 +34,7 @@
 
                     @can('main-layouting-setting-read')
                         <div class="menu-item">
-                            <a href="{{ route('users.index') }}" class="menu-link">
+                            <a href="{{ route('main.setting-dashboard.index') }}" class="menu-link">
                                 <span class="menu-icon">
                                     <i class="ki-duotone ki-gear fs-2">
                                         <i class="path1"></i>

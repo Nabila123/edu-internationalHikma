@@ -15,8 +15,8 @@ class SettingDashboardController extends Controller
 
     public function index()
     {
-        abort_if(Gate::denies(''), 403);
+        abort_if(Gate::denies('main-layouting-setting-read'), 403);
 
-        return view('');
+        return view('MainLayouting.SettingDashboard.index');
     }
 }
