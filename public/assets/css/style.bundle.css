@@ -28835,6 +28835,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     margin-right: 0;
   }
 }
+.separator-vertical {
+    background-color: var(--bs-border-color);
+    display: inline-block;
+}
 .separator {
   display: block;
   height: 0;

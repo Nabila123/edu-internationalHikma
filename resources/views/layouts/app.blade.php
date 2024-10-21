@@ -47,6 +47,7 @@
     <script src='{{ asset('assets/js/custom/apps/chat/chat.js') }}'></script>
     <script src='{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}'></script>
     <script src='{{ asset('assets/js/custom/utilities/modals/users-search.js') }}'></script>
+    <script src='{{ asset('assets/js/helper.js') }}'></script>
     <!--end::Custom Javascript-->
 
     <!--begin::Custom Javascript(used for this page only)-->

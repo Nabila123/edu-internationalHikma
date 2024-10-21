@@ -32,6 +32,7 @@ use App\Http\Controllers\MainLayouting\Profile\StandartKompetensiController;
 use App\Http\Controllers\MainLayouting\Profile\TentangSekolahController as ProfileTentangSekolahController;
 use App\Http\Controllers\MainLayouting\Profile\VisiMisiController;
 use App\Http\Controllers\MainLayouting\SettingDashboardController;
+use App\Http\Controllers\MainLayouting\TestimoniController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -100,9 +101,12 @@ Route::group(['middleware' => ['auth']], function () {
             Route::resource('blog', BeritaBlogController::class);
         });
 
+        Route::post('setting-dashboard/updateLogo', [SettingDashboardController::class, 'updateLogo'])->name('setting-dashboard.updateLogo');
         Route::resource('setting-dashboard', SettingDashboardController::class);
+
         Route::resource('prestasi', MainLayoutingPrestasiController::class);
         Route::resource('galeri', MainLayoutingGaleriController::class);
+        Route::resource('testimoni', TestimoniController::class);
         Route::resource('karier', MainLayoutingKarierController::class);
         Route::resource('kontak-kami', ContactController::class);
     });

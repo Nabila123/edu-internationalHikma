@@ -1,5 +1,6 @@
 function validateFileInput(
     inputSelector,
+    previewSelector,
     errorSelector,
     allowedExtensions,
     maxSize
@@ -39,7 +40,7 @@ function validateFileInput(
                 return;
             }
 
-            showImagePreview(inputSelector, "#imagePreview");
+            showImagePreview(inputSelector, previewSelector);
         }
     });
 }

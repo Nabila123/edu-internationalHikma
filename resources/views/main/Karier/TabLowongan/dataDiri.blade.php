@@ -157,7 +157,7 @@
                 dateFormat: "Y-m-d"
             });
 
-            validateFileInput('#ddImage', '.ddImage', /\.(jpg|jpeg|png)$/i, 2 * 1024 * 1024);
+            validateFileInput('#ddImage', '#imagePreview', '.ddImage', /\.(jpg|jpeg|png)$/i, 2 * 1024 * 1024);
         });
     </script>
 @endpush

@@ -228,6 +228,17 @@
                         </div>
                     @endcanany
 
+                    @can('main-layouting-testimoni-read')
+                        <div class="menu-item">
+                            <a href="{{ route('main.testimoni.index') }}" class="menu-link">
+                                <span class="menu-icon">
+                                    <i class="fa-solid fa-comment fs-6"></i>
+                                </span>
+                                <span class="menu-title">Testimoni</span>
+                            </a>
+                        </div>
+                    @endcan
+
                     @can('main-layouting-karier-read')
                         <div class="menu-item">
                             <a href="{{ route('main.karier.index') }}" class="menu-link">
