@@ -10,11 +10,10 @@ return new class extends Migration
     {
         Schema::create('mast_dashboard_setting', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique();
-            $table->string('logo');
-            $table->string('header');
-            $table->string('side');
-            $table->string('video');
+            $table->string('logo')->nullable();
+            $table->string('header')->nullable();
+            $table->string('side')->nullable();
+            $table->string('video')->nullable();
             $table->unsignedBigInteger('userId');
             $table->timestamps();
 

@@ -13,7 +13,6 @@ class SettingDashboard extends Model
 
     protected $table = 'mast_dashboard_setting';
     protected $fillable = [
-        'uuid',
         'logo',
         'header',
         'side',
@@ -26,7 +25,6 @@ class SettingDashboard extends Model
         return LogOptions::defaults()
             ->useLogName('Main Layouting - Setting Dashboard')
             ->logOnly([
-                'uuid',
                 'logo',
                 'header',
                 'side',
@@ -40,7 +38,6 @@ class SettingDashboard extends Model
     public static function settingDashboardUpdateField($id, $updateField)
     {
         $dataField = [
-            'uuid',
             'logo',
             'header',
             'side',

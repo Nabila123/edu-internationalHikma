@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
-use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Storage;
 
 function uang($nominal = '', $rp = '1', $dec = 0)
 {
@@ -32,18 +32,6 @@ function spasi($rekursive = 1)
     }
 }
 
-function get_client_ip()
-{
-    $ipaddress = '';
-    if ($_SERVER['REMOTE_ADDR']) {
-        $ipaddress = $_SERVER['REMOTE_ADDR'];
-    } else {
-        $ipaddress = 'UNKNOWN';
-    }
-
-    return $ipaddress;
-}
-
 function formatTanggalPanjang($tanggal = '')
 {
     if ($tanggal == '') {
@@ -55,7 +43,6 @@ function formatTanggalPanjang($tanggal = '')
     $bln = $bln > 0 && $bln < 10 ? substr($bln, 1, 1) : $bln;
     return ((int) @$tgl) . ' ' . @$aBulan[$bln] . ' ' . @$thn;
 }
-
 
 function formatBulanTahun($tanggal)
 {
@@ -135,15 +122,6 @@ function combo_jnskelamin($id = '', $selected = "")
     return $h;
 }
 
-function tanggal_indonesia()
-{
-    $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
-    $hari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
-    //    $cetak_date = $hari[(int)date("w")] .', '. date("j ") . $bulan[(int)date('m')] . date(" Y"); 
-    $cetak_date = date("j ") . $bulan[(int)date('m')] . date(" Y");
-    return $cetak_date;
-}
-
 function generateRandomString($length = 10, $type = 'username')
 {
     $characters = '123456789';
@@ -162,19 +140,6 @@ function generateRandomString($length = 10, $type = 'username')
 
     return $randomString;
 }
-
-function catat_log($aksi = '', $modul = '')
-{
-    $simpan = array(
-        'aksi' => $aksi,
-        'module' => $modul,
-        'user' => Session::get('user_id'),
-        'url' => Request::url(),
-        'waktu' => date("Y-m-d H:i:s")
-    );
-    $save = DB::table('application_log')->insert($simpan);
-}
-
 
 function hari($hari)
 {
@@ -241,12 +206,6 @@ function get_username()
         $user = $user[1];
         return $user;
     }
-}
-
-function isSecure()
-{
-    return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-        || $_SERVER['SERVER_PORT'] == 443;
 }
 
 function getUserPhoto($id = '')
@@ -453,4 +412,18 @@ function getBadgeStatus($status)
             return 'badge-light-dark';
             break;
     }
+}
+
+function getStorageImage($directory = '', $file = '', $defaultImage = 'assets/media/avatars/logo-none.jpg', $disk = 'public')
+{
+    if (empty($file)) {
+        return asset($defaultImage);
+    }
+
+    $path = trim($directory, '/') . '/' . $file;
+    if (!Storage::disk($disk)->exists($path)) {
+        return asset($defaultImage);
+    }
+
+    return asset('storage/' . $path);
 }

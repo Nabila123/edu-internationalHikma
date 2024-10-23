@@ -6,7 +6,7 @@
             <div class="d-flex flex-wrap flex-sm-nowrap">
                 <div class="me-7">
                     <div class="symbol symbol-100px symbol-lg-150px symbol-fixed position-relative">
-                        <img id="imageLogoUtama" src="{{ asset('assets/media/avatars/logo-none.jpg') }}" alt="image">
+                        <img id="imageLogoUtama" src="{{ asset($data->logoUtama) }}" alt="image">
                     </div>
                 </div>
 
@@ -31,8 +31,7 @@
             <div class="d-flex flex-wrap flex-sm-nowrap">
                 <div class="me-7">
                     <div class="symbol symbol-100px symbol-lg-150px symbol-fixed position-relative">
-                        <img id="imageHeaderLogo" src="{{ asset('assets/media/avatars/logo-none.jpg') }}"
-                            alt="image">
+                        <img id="imageHeaderLogo" src="{{ asset($data->headerLogo) }}" alt="image">
                     </div>
                 </div>
 
@@ -58,8 +57,7 @@
             <div class="d-flex flex-wrap flex-sm-nowrap">
                 <div class="me-7">
                     <div class="symbol symbol-100px symbol-lg-150px symbol-fixed position-relative">
-                        <img id="imageComponentLogo" src="{{ asset('assets/media/avatars/logo-none.jpg') }}"
-                            alt="image">
+                        <img id="imageComponentLogo" src="{{ asset($data->componentLogo) }}" alt="image">
                     </div>
                 </div>
 

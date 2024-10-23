@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class SettingDashboardController extends Controller
 {
@@ -22,7 +23,15 @@ class SettingDashboardController extends Controller
     {
         abort_if(Gate::denies('main-layouting-setting-read'), 403);
 
-        return view('MainLayouting.SettingDashboard.index');
+        $dataLogos = SettingDashboard::first();
+        $logoData = $dataLogos ? json_decode($dataLogos->logo, true) : [];
+
+        $logoData['logoUtama'] = getStorageImage('media/logo', $logoData['logoUtama'] ?? '', 'assets/media/avatars/logo-none.jpg');
+        $logoData['headerLogo'] = getStorageImage('media/logo', $logoData['headerLogo'] ?? '', 'assets/media/avatars/logo-none.jpg');
+        $logoData['componentLogo'] = getStorageImage('media/logo', $logoData['componentLogo'] ?? '', 'assets/media/avatars/logo-none.jpg');
+        $data = (object) $logoData;
+
+        return view('MainLayouting.SettingDashboard.index', compact('data'));
     }
 
     public function updateLogo(Request $request)
@@ -70,10 +79,11 @@ class SettingDashboardController extends Controller
             }
 
             $dataImage = SettingDashboard::first();
+            $logo = $dataImage ? json_decode($dataImage->logo) : null; // Decode logo jika ada
             $uploadedImages = [
-                "logo" => '',
-                "header" => '',
-                "component" => ''
+                "logoUtama" => $logo->logoUtama ?? '',
+                "headerLogo" => $logo->headerLogo ?? '',
+                "componentLogo" => $logo->componentLogo ?? ''
             ];
 
             if ($request->file()) {
@@ -86,29 +96,44 @@ class SettingDashboardController extends Controller
                     }
 
                     if ($uploadedImages[$key]) {
-                        $imageLogo = $key == 'image' ? $dataImage->foto : $dataImage->ktp;
-                        $filePath = 'media/logo/' . $key . '/' . $imageLogo;
+                        $imageLogo = $uploadedImages[$key];
+                        $filePath = 'media/logo/' . $imageLogo;
 
                         if (Storage::disk('public')->exists($filePath)) {
                             Storage::disk('public')->delete($filePath);
                         }
                     }
 
-                    // $imageInstance = Image::make($image);
-                    // $imageInstance->resize(800, null, function ($constraint) {
-                    //     $constraint->aspectRatio();
-                    //     $constraint->upsize();
-                    // });
+                    $imageInstance = Image::make($image);
+                    $imageInstance->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
 
-                    // $directoryPath = 'media/penghuni/' . $key;
+                    $directoryPath = 'media/logo';
 
-                    // $imageName = md5($request->nama . "-" . round(microtime(true) * 1000)) . '.' . $image->getClientOriginalExtension();
-                    // $fullPath = $directoryPath . '/' . $imageName;
-                    // Storage::disk('public')->put($fullPath, (string) $imageInstance->encode());
+                    $imageName = md5($request->nama . "-" . round(microtime(true) * 1000)) . '.' . $image->getClientOriginalExtension();
+                    $fullPath = $directoryPath . '/' . $imageName;
+                    Storage::disk('public')->put($fullPath, (string) $imageInstance->encode());
 
-                    // $uploadedImages[$key] = $imageName;
+                    $uploadedImages[$key] = $imageName;
                 }
             }
+
+            $paramLogos = [
+                'logo' => json_encode($uploadedImages),
+                'userId' => getUserId()
+            ];
+
+            $dataLogos = SettingDashboard::settingDashboardUpdateField($dataImage->id ?? '', $paramLogos);
+            if ($dataLogos['status'] != 'success') {
+                toast('Data Logo Gagal DiSimpan !!', 'warning')->autoClose(5000)->timerProgressBar();
+                return redirect()->back()->withInput();
+            }
+
+            DB::commit();
+            toast('Data Logo Berhasil Disimpan', 'success')->autoClose(5000)->timerProgressBar();
+            return redirect()->back();
         } catch (\Throwable $th) {
             DB::rollback();
 
