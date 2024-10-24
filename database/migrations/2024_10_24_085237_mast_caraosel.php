@@ -8,13 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('mast_dashboard_setting', function (Blueprint $table) {
+        Schema::create('mast_caraosel', function (Blueprint $table) {
             $table->id();
-            $table->string('logo')->nullable();
-            $table->string('header')->nullable();
-            $table->string('side')->nullable();
-            $table->string('video')->nullable();
+            $table->string('uuid')->unique();
+            $table->string('title');
+            $table->string('deskripsi');
+            $table->string('slogan');
+            $table->string('image');
             $table->unsignedBigInteger('userId');
+            $table->char('isActive');
             $table->timestamps();
 
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
@@ -23,6 +25,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('mast_dashboard_setting');
+        Schema::dropIfExists('mast_caraosel');
     }
 };

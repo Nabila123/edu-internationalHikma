@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MainLayouting;
 
 use App\Http\Controllers\Controller;
+use App\Models\Main\Logos;
+use App\Models\Main\SeetingDashboard\Caraosel;
 use App\Models\Main\SettingDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,132 +25,112 @@ class SettingDashboardController extends Controller
     {
         abort_if(Gate::denies('main-layouting-setting-read'), 403);
 
-        $dataLogos = SettingDashboard::first();
-        $logoData = $dataLogos ? json_decode($dataLogos->logo, true) : [];
+        $dataLogos = Logos::all();
+        foreach ($dataLogos as $logo) {
+            $logo->logo = getStorageImage('media/logo', $logo->logo, 'assets/media/avatars/logo-none.jpg');
 
-        $logoData['logoUtama'] = getStorageImage('media/logo', $logoData['logoUtama'] ?? '', 'assets/media/avatars/logo-none.jpg');
-        $logoData['headerLogo'] = getStorageImage('media/logo', $logoData['headerLogo'] ?? '', 'assets/media/avatars/logo-none.jpg');
-        $logoData['componentLogo'] = getStorageImage('media/logo', $logoData['componentLogo'] ?? '', 'assets/media/avatars/logo-none.jpg');
-        $data = (object) $logoData;
-
-        return view('MainLayouting.SettingDashboard.index', compact('data'));
-    }
-
-    public function updateLogo(Request $request)
-    {
-        abort_if(Gate::denies('main-layouting-setting-update'), 403);
-        try {
-            DB::beginTransaction();
-
-            if (empty($request->file())) {
-                toast('Tidak Ada File Yang Perlu Diupdate !!', 'warning')->autoClose(5000)->timerProgressBar();
-                return redirect()->back();
-            }
-
-            $validator = Validator::make($request->files->all(), [
-                'logoUtama' => [
-                    'nullable',
-                    'mimes:jpg,png,jpeg',
-                    'max:2048',
-                ],
-                'headerLogo' => [
-                    'nullable',
-                    'mimes:jpg,png,jpeg',
-                    'max:5120',
-                ],
-                'componentLogo' => [
-                    'nullable',
-                    'mimes:jpg,png,jpeg',
-                    'max:2048',
-                ],
-            ], [
-                'logoUtama.mimes' => 'Type Gambar logo utama salah, type file harus .jpg / .jpeg / .png.',
-                'logoUtama.max' => 'Ukuran File logo utama terlalu besar, Max File 2 MB.',
-                'headerLogo.mimes' => 'Type Gambar header salah, type file harus .jpg / .jpeg / .png.',
-                'headerLogo.max' => 'Ukuran File header terlalu besar, Max File 5 MB.',
-                'componentLogo.mimes' => 'Type Gambar komponen salah, type file harus .jpg / .jpeg / .png.',
-                'componentLogo.max' => 'Ukuran File komponen terlalu besar, Max File 2 MB.',
-            ]);
-
-            if ($validator->fails()) {
-                $errors = $validator->errors()->all();
-                foreach ($errors as $error) {
-                    toast($error, 'warning')->autoClose(5000)->timerProgressBar();
-                }
-                return redirect()->back();
-            }
-
-            $dataImage = SettingDashboard::first();
-            $logo = $dataImage ? json_decode($dataImage->logo) : null; // Decode logo jika ada
-            $uploadedImages = [
-                "logoUtama" => $logo->logoUtama ?? '',
-                "headerLogo" => $logo->headerLogo ?? '',
-                "componentLogo" => $logo->componentLogo ?? ''
-            ];
-
-            if ($request->file()) {
-                $allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-
-                foreach ($request->file() as $key => $image) {
-                    if (!in_array($image->getMimeType(), $allowedMimeTypes)) {
-                        toast('Type Gambar Salah, Gambar Harus JPG / JPEG / PNG', 'warning')->autoClose(5000)->timerProgressBar();
-                        return redirect()->back();
-                    }
-
-                    if ($uploadedImages[$key]) {
-                        $imageLogo = $uploadedImages[$key];
-                        $filePath = 'media/logo/' . $imageLogo;
-
-                        if (Storage::disk('public')->exists($filePath)) {
-                            Storage::disk('public')->delete($filePath);
-                        }
-                    }
-
-                    $imageInstance = Image::make($image);
-                    $imageInstance->resize(800, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
-                    });
-
-                    $directoryPath = 'media/logo';
-
-                    $imageName = md5($request->nama . "-" . round(microtime(true) * 1000)) . '.' . $image->getClientOriginalExtension();
-                    $fullPath = $directoryPath . '/' . $imageName;
-                    Storage::disk('public')->put($fullPath, (string) $imageInstance->encode());
-
-                    $uploadedImages[$key] = $imageName;
-                }
-            }
-
-            $paramLogos = [
-                'logo' => json_encode($uploadedImages),
-                'userId' => getUserId()
-            ];
-
-            $dataLogos = SettingDashboard::settingDashboardUpdateField($dataImage->id ?? '', $paramLogos);
-            if ($dataLogos['status'] != 'success') {
-                toast('Data Logo Gagal DiSimpan !!', 'warning')->autoClose(5000)->timerProgressBar();
-                return redirect()->back()->withInput();
-            }
-
-            DB::commit();
-            toast('Data Logo Berhasil Disimpan', 'success')->autoClose(5000)->timerProgressBar();
-            return redirect()->back();
-        } catch (\Throwable $th) {
-            DB::rollback();
-
-            Log::error('[ Setting Dashboard ] - Logos', [
-                'Error' => $th->getMessage(),
-                'Exception' => $th,
-                'Stacktrace' => $th->getTraceAsString()
-            ]);
-
-            if (env('APP_ENV') != 'production') {
-                dd($th);
+            if ($logo->kategori == "utama") {
+                $logo->posisi = "Tab Navigasi Bar";
+            } elseif ($logo->kategori == "header") {
+                $logo->posisi = "Header Navigasi";
             } else {
-                toast('Terjadi Kesalahan !!!', 'warning')->autoClose(5000)->timerProgressBar();
+                $logo->posisi = "Component Content";
             }
-            return redirect()->back();
         }
+        $datas['logo'] = $dataLogos;
+
+        $dataCaraosel = Caraosel::paginate(25);
+        $noPage = ($dataCaraosel->currentPage() - 1) * $dataCaraosel->perPage() + 1;
+        foreach ($dataCaraosel as $caraosel) {
+            $caraosel->noPage = $noPage++;
+            $caraosel->image = getStorageImage('media/caraosel', $caraosel->image, 'assets/media/avatars/logo-none.jpg');
+            $caraosel->status = $caraosel->isActive == 1 ? 'Aktif' : 'Tidak Aktif';
+        }
+        $datas['caraosel'] = $dataCaraosel;
+
+
+        return view('MainLayouting.SettingDashboard.index', compact('datas'));
     }
+
+    // public function createHeader(Request $request)
+    // {
+    //     abort_if(Gate::denies('main-layouting-setting-create'), 403);
+
+    //     try {
+    //         DB::beginTransaction();
+    //         $validator = Validator::make($request->all(), [
+    //             'judul' => [
+    //                 'required'
+    //             ],
+    //             'deskripsi' => [
+    //                 'required'
+    //             ]
+    //         ], [
+    //             'judul.required' => 'Judul Tidak Boleh Kosong !!',
+    //             'deskripsi.required' => 'Deskripsi Tidak Boleh Kosong !!',
+    //         ]);
+
+    //         if ($validator->fails()) {
+    //             $errors = $validator->errors()->all();
+    //             foreach ($errors as $error) {
+    //                 toast($error, 'warning')->autoClose(5000)->timerProgressBar();
+    //             }
+    //             return redirect()->back();
+    //         }
+
+    //         $headerData = SettingDashboard::first();
+    //         $dataHeader = null;
+
+    //         if ($headerData->header != null) {
+    //             $dataHeader = json_decode($headerData->header);
+
+    //             foreach ($request->repeaterCreateBmt as $subArray) {
+    //                 foreach ($subArray as $value) {
+    //                     if ($value != null) {
+    //                         array_push($dataHeader, $value);
+    //                     }
+    //                 }
+    //             }
+    //         }
+
+    //         $dataHeader[] = [
+    //             'judul' => $request->judul,
+    //             'deskripsi' => $request->deskripsi
+    //         ];
+
+    //         if ($dataHeader != null) {
+    //             $dataHeader = json_encode($dataHeader);
+    //         }
+
+    //         $paramHeader = [
+    //             'header' => $dataHeader,
+    //             'userId' => getUserId()
+    //         ];
+
+    //         $dataHeaders = SettingDashboard::settingDashboardUpdateField($headerData->id ?? '', $paramHeader);
+    //         if ($dataHeaders['status'] != 'success') {
+    //             toast('Data Header Gagal DiSimpan !!', 'warning')->autoClose(5000)->timerProgressBar();
+    //             return redirect()->back()->withInput();
+    //         }
+
+    //         DB::commit();
+    //         toast('Data Header Berhasil Disimpan', 'success')->autoClose(5000)->timerProgressBar();
+    //         return redirect()->back();
+    //     } catch (\Throwable $th) {
+    //         DB::rollback();
+
+    //         Log::error('[ Setting Dashboard ] - Header', [
+    //             'Error' => $th->getMessage(),
+    //             'Exception' => $th,
+    //             'Stacktrace' => $th->getTraceAsString()
+    //         ]);
+
+    //         if (env('APP_ENV') != 'production') {
+    //             dd($th);
+    //         } else {
+    //             toast('Terjadi Kesalahan !!!', 'warning')->autoClose(5000)->timerProgressBar();
+    //         }
+    //         return redirect()->back();
+    //     }
+    // }
 }

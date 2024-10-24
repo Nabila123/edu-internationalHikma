@@ -31,6 +31,8 @@ use App\Http\Controllers\MainLayouting\Profile\SejarahSekolahController as Profi
 use App\Http\Controllers\MainLayouting\Profile\StandartKompetensiController;
 use App\Http\Controllers\MainLayouting\Profile\TentangSekolahController as ProfileTentangSekolahController;
 use App\Http\Controllers\MainLayouting\Profile\VisiMisiController;
+use App\Http\Controllers\MainLayouting\SettingDashboard\CaraoselController;
+use App\Http\Controllers\MainLayouting\SettingDashboard\LogosController;
 use App\Http\Controllers\MainLayouting\SettingDashboardController;
 use App\Http\Controllers\MainLayouting\TestimoniController;
 use App\Http\Controllers\PermissionController;
@@ -101,8 +103,11 @@ Route::group(['middleware' => ['auth']], function () {
             Route::resource('blog', BeritaBlogController::class);
         });
 
-        Route::post('setting-dashboard/updateLogo', [SettingDashboardController::class, 'updateLogo'])->name('setting-dashboard.updateLogo');
         Route::resource('setting-dashboard', SettingDashboardController::class);
+        Route::group(['prefix' => 'setting-dashboard', 'as' => 'setting-dashboard.'], function () {
+            Route::resource('logo', LogosController::class);
+            Route::resource('caraosel', CaraoselController::class);
+        });
 
         Route::resource('prestasi', MainLayoutingPrestasiController::class);
         Route::resource('galeri', MainLayoutingGaleriController::class);

@@ -31,15 +31,23 @@
                         <li class="nav-item mt-2">
                             <a class="nav-link text-active-primary ms-0 me-10 py-5 active" data-bs-toggle="tab"
                                 href="#logoHeader">
-                                Logo & Slide Header </a>
+                                Logo & Slide Header
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#caraosel">
+                                Caraosel
+                            </a>
                         </li>
                         <li class="nav-item mt-2">
                             <a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#headerSide">
-                                Header Side </a>
+                                Header Side
+                            </a>
                         </li>
                         <li class="nav-item mt-2">
                             <a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#video">
-                                Video </a>
+                                Video
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -51,6 +59,9 @@
                     <div class="tab-pane fade show active" id="logoHeader" role="tabpanel">
                         @include('MainLayouting.SettingDashboard.Tab.logoHeader')
                     </div>
+                    <div class="tab-pane fade show " id="caraosel" role="tabpanel">
+                        @include('MainLayouting.SettingDashboard.Tab.caraosel')
+                    </div>
                     <div class="tab-pane fade" id="headerSide" role="tabpanel">
                         @include('MainLayouting.SettingDashboard.Tab.headerSide')
                     </div>
@@ -60,9 +71,12 @@
                 </div>
             </div>
         </div>
-    @endsection
-    @push('custom-scripts')
-        <script type="text/javascript">
-            $(document).ready(function() {});
-        </script>
-    @endpush
+    </div>
+
+    @include('MainLayouting.SettingDashboard.modalSetting')
+@endsection
+@push('custom-scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {});
+    </script>
+@endpush
