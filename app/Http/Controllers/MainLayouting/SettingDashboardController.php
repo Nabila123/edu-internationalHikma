@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MainLayouting;
 use App\Http\Controllers\Controller;
 use App\Models\Main\Logos;
 use App\Models\Main\SeetingDashboard\Caraosel;
+use App\Models\Main\SeetingDashboard\SideHeader;
 use App\Models\Main\SettingDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -48,6 +49,14 @@ class SettingDashboardController extends Controller
         }
         $datas['caraosel'] = $dataCaraosel;
 
+        $dataSideHeader = SideHeader::all();
+        foreach ($dataSideHeader as $side) {
+            $side->status = $side->isActive == 1 ? 'Aktif' : 'Tidak Aktif';
+        }
+        $datas['sideHeader'] = [
+            'data' => $dataSideHeader,
+            'total' => $dataSideHeader->count(),
+        ];
 
         return view('MainLayouting.SettingDashboard.index', compact('datas'));
     }

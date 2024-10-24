@@ -33,6 +33,8 @@ use App\Http\Controllers\MainLayouting\Profile\TentangSekolahController as Profi
 use App\Http\Controllers\MainLayouting\Profile\VisiMisiController;
 use App\Http\Controllers\MainLayouting\SettingDashboard\CaraoselController;
 use App\Http\Controllers\MainLayouting\SettingDashboard\LogosController;
+use App\Http\Controllers\MainLayouting\SettingDashboard\SideHeaderController;
+use App\Http\Controllers\MainLayouting\SettingDashboard\VideoController;
 use App\Http\Controllers\MainLayouting\SettingDashboardController;
 use App\Http\Controllers\MainLayouting\TestimoniController;
 use App\Http\Controllers\PermissionController;
@@ -107,6 +109,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'setting-dashboard', 'as' => 'setting-dashboard.'], function () {
             Route::resource('logo', LogosController::class);
             Route::resource('caraosel', CaraoselController::class);
+            Route::resource('side-header', SideHeaderController::class);
+            Route::resource('video', VideoController::class);
         });
 
         Route::resource('prestasi', MainLayoutingPrestasiController::class);

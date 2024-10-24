@@ -142,12 +142,12 @@
     </div>
 </div>
 
-{{-- <div class="modal fade" id="modalHeader" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle"
+<div class="modal fade" id="modalHeader" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle"
     aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h3 class="modal-title text-white"></h3>
+                <h3 class="modal-title text-white titleModalHeader"></h3>
                 <div class="btn btn-icon btn-sm btn-light-dark ms-2" data-bs-dismiss="modal" aria-label="Close">
                     <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                 </div>
@@ -158,11 +158,11 @@
                     <div class="row">
                         <div class="col-md-12 mb-5">
                             <div class="form-group">
-                                <label class="required fw-bolder fs-6 mb-2">Judul</label>
-                                <input name="judul" id="judul" type="text"
-                                    class="form-control @error('judul') is-invalid @enderror mb-3 mb-lg-0"
-                                    value="{{ old('judul') }}" placeholder="Masukkan Judul" required>
-                                @error('judul')
+                                <label class="required fw-bolder fs-6 mb-2">Title</label>
+                                <input name="title" id="title" type="text"
+                                    class="form-control @error('title') is-invalid @enderror mb-3 mb-lg-0"
+                                    value="{{ old('title') }}" placeholder="Masukkan Title" required>
+                                @error('title')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -172,7 +172,7 @@
                         <div class="col-md-12 mb-5">
                             <div class="form-group">
                                 <label class="required fw-bolder fs-6 mb-2">Deskripsi</label>
-                                <textarea name="deskripsi" id="deskripsi" class="form-control" data-kt-autosize="true"
+                                <textarea name="deskripsi" id="deskripsiHeader" class="form-control" data-kt-autosize="true"
                                     placeholder="Masukkan Deskripsi" required></textarea>
                                 @error('deskripsi')
                                     <div class="invalid-feedback">
@@ -181,10 +181,20 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-md-4 mb-5">
+                            <div class="form-group">
+                                <label class=" fw-bolder fs-6 mb-2">Status</label>
+                                <select id="isActiveHeader" name="isActive" class="form-select"
+                                    data-control="select2" data-placeholder="Pilih Satu" required>
+                                    <option value="1">Aktif</option>
+                                    <option value="0">Tidak Aktif</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <br>
                 </div>
-                <div class="card-footer text-end">
+                <div class="modal-footer text-end">
                     <button type="submit" class="btn btn-primary me-10">
                         <span class="indicator-label">
                             Simpan
@@ -197,7 +207,7 @@
             </form>
         </div>
     </div>
-</div> --}}
+</div>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modalDelete">
     <div class="modal-dialog modal-dialog-centered" role="document">
